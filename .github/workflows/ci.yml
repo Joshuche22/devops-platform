@@ -4,6 +4,7 @@ on:
     branches: [main, master]
   pull_request:
     branches: [main, master]
+
 jobs:
   test:
     name: Run Tests
@@ -43,15 +44,6 @@ jobs:
           tags: |
             benny2022/devops-metrics-api:latest
             benny2022/devops-metrics-api:${{ github.sha }}
-      - name: Push to ECR (requires AWS credentials)
-        if: secrets.AWS_ACCESS_KEY_ID != ''
-        run: |
-          aws configure set aws_access_key_id ${{ secrets.AWS_ACCESS_KEY_ID }}
-          aws configure set aws_secret_access_key ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws configure set region eu-west-2
-          aws ecr get-login-password --region eu-west-2 | docker login --username AWS --password-stdin ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.eu-west-2.amazonaws.com
-          docker tag benny2022/devops-metrics-api:latest ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.eu-west-2.amazonaws.com/devops-platform-api:latest
-          docker push ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.eu-west-2.amazonaws.com/devops-platform-api:latest
 
   deploy:
     name: Deploy to EKS
@@ -60,15 +52,8 @@ jobs:
     if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master'
     steps:
       - uses: actions/checkout@v4
-      - name: Deploy to EKS (requires AWS credentials)
-        if: secrets.AWS_ACCESS_KEY_ID != ''
+      - name: Skip EKS deployment
         run: |
-          aws configure set aws_access_key_id ${{ secrets.AWS_ACCESS_KEY_ID }}
-          aws configure set aws_secret_access_key ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws configure set region eu-west-2
-          aws eks update-kubeconfig --region eu-west-2 --name devops-platform-cluster
-          kubectl apply -f k8s/deployment.yml
-          kubectl rollout status deployment/devops-metrics-api --timeout=120s
-      - name: Skip deployment (AWS credentials not configured)
-        if: secrets.AWS_ACCESS_KEY_ID == ''
-        run: echo "AWS credentials not configured - skipping EKS deployment"
+          echo "EKS deployment skipped - requires live cluster"
+          echo "See Loom demo for live deployment evidence"
+          echo "Pipeline: build and push to Docker Hub complete"
