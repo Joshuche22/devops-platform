@@ -151,3 +151,13 @@ curl http://aa7dfb882474b49bb8b1729398d12dc4-280349195.eu-west-2.elb.amazonaws.c
 
 **Benedict Korie** — DevOps & Cloud Engineer
 [GitHub](https://github.com/Joshuche22) | [LinkedIn](https://linkedin.com/in/benedict-korie)
+## Git Workflow
+
+This repository follows a trunk-based development workflow with branch protection enforced on `main`.
+
+- All changes are developed on feature branches (`feature/<description>`)
+- A pull request is raised and must be reviewed and approved before merging
+- Direct pushes to `main` are blocked by branch protection rules
+- Commit messages follow the [Conventional Commits](https://www.conventionalcommits.org/) standard (`feat:`, `fix:`, `docs:`, `chore:`)
+
+This mirrors the workflow used in professional engineering teams.
