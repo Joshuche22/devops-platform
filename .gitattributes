@@ -1,2 +1,7 @@
-*.tf linguist-detectable=false
-*.hcl linguist-detectable=false
+*.js linguist-vendored=true
+*.json linguist-vendored=true
+app/** linguist-vendored=true
+*.tf linguist-detectable=true
+*.hcl linguist-detectable=true
+*.yaml linguist-detectable=true
+*.yml linguist-detectable=true
