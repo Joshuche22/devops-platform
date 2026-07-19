@@ -1,6 +1,6 @@
 # DevOps Platform — Production-Grade EKS Deployment
 
-![CI - Build & Push](https://github.com/Joshuche22/devops-platform/actions/workflows/ci.yml/badge.svg)
+![CI - Build & Push](https://github.com/benedict-korie/devops-platform/actions/workflows/ci.yml/badge.svg)
 ![Kubernetes](https://img.shields.io/badge/Kubernetes-1.32-326CE5?logo=kubernetes&logoColor=white)
 ![Terraform](https://img.shields.io/badge/Terraform-IaC-7B42BC?logo=terraform&logoColor=white)
 ![AWS EKS](https://img.shields.io/badge/AWS-EKS-FF9900?logo=amazonaws&logoColor=white)
@@ -138,7 +138,7 @@ devops-metrics-api   LoadBalancer   172.20.74.251   aa7dfb882474b49bb8b1729398d1
 ## Author
 
 **Benedict Korie** — DevOps & Cloud Engineer, London
-[GitHub](https://github.com/Joshuche22) · [LinkedIn](https://linkedin.com/in/benedict-chijindu-korie-4b29a837b) · benedictkorie785@gmail.com
+[GitHub](https://github.com/benedict-korie) · [LinkedIn](https://linkedin.com/in/benedict-chijindu-korie-4b29a837b) · benedictkorie785@gmail.com
 
 ---
 
